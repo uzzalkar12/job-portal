@@ -41,7 +41,7 @@
                                         <h3>{{ get_applicant_email($job_applicant->applicant_id) }}</h3>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-xs-12">
-                                        <h3>Download</h3>
+                                        <h3><a href="{{ route('resume-download', $job_applicant->applicant_id) }}">Download</a></h3>
                                     </div>
                                 </div>
                             </div>

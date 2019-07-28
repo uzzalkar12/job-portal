@@ -28,7 +28,11 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::post('/applicant-register', 'RegisterController@applicantRegistrationStore')->name('applicant-register');
     Route::post('/company-register', 'RegisterController@companyRegistrationStore')->name('company-register');
 
-   Route::get('job-details/{id}', 'HomeController@jobDetails')->name('job-details');
+    Route::get('job-details/{id}', 'HomeController@jobDetails')->name('job-details');
+    Route::group(['middleware' => 'auth'], function () {
+    // Apply Job
+        Route::post('apply-job/{id}', 'HomeController@applyJob')->name('apply-job');
+    });
 });
 
 Route::group(['namespace' => 'Backend', 'middleware' => 'auth'], function () {
@@ -40,7 +44,11 @@ Route::group(['namespace' => 'Backend', 'middleware' => 'auth'], function () {
     Route::get('company-profile', 'ProfileController@companyProfile')->name('company-profile');
     // Applicant route
     Route::get('applicant-profile', 'ProfileController@applicantProfile')->name('applicant-profile');
+    Route::get('update-profile', 'ProfileController@updateProfile')->name('update-profile');
+    Route::post('update-profile', 'ProfileController@storeUpdateProfile')->name('update-profile');
     Route::get('applicant-jobs', 'ApplicantJobsController@applicantJobs')->name('applicant-jobs');
+    Route::get('resume-download/{id}', 'ProfileController@resumeDownload')->name('resume-download');
+
 });
 
 Route::get('/dd', function ($job_id  = 1) {

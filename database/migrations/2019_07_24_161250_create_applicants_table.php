@@ -16,7 +16,6 @@ class CreateApplicantsTable extends Migration
         Schema::create('applicants', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('image')->nullable();
             $table->string('resume')->nullable();
             $table->timestamps();
 

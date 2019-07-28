@@ -17,7 +17,7 @@ class JobsController extends Controller
      */
     public function index()
     {
-        $jobs = Job::orderBy('created_at')->get();
+        $jobs = Job::orderBy('created_at')->where('user_id', Auth::user()->id)->get();
         return view('backend.company.jobs.list', compact('jobs'))->with('sl', 1);
     }
 

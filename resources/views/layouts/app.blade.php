@@ -1,3 +1,9 @@
+<?php
+    header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+    header("Cache-Control: post-check=0, pre-check=0", false);
+    header("Pragma: no-cache");
+?>
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -56,6 +62,9 @@
                     @else
                         <ul class="navbar-nav mr-auto w-100 justify-content-end">
                             <li class="nav-item active">
+                                <a class="nav-link" href="{{ route('/') }}">Home</a>
+                            </li>
+                            <li class="nav-item">
                                 <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
                             </li>
                             <li class="nav-item">

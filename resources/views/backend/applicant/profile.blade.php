@@ -20,11 +20,20 @@
                         <p class="mb-2" style="font-size: 20px; font-weight: bold;color: black">Name</p>
                         <p>{{ $profile->first_name . ' ' . $profile->last_name }}</p>
 
-                        <p class="mb-2 mt-3" style="font-size: 20px; font-weight: bold;color: black">Company Name</p>
-                        <p>{{ $profile->company->business_name }}</p>
-
                         <p class="mb-2 mt-3" style="font-size: 20px; font-weight: bold;color: black">Email</p>
                         <p>{{ $profile->email }}</p>
+
+                        <p class="mb-2 mt-3" style="font-size: 20px; font-weight: bold;color: black">Skills</p>
+                        <p>
+                            @foreach(get_applicant_skill() as $applicant_skill)
+                                {{ get_skill_name($applicant_skill->id) }}
+                            @endforeach
+                        </p>
+
+                        <p class="mb-2 mt-3" style="font-size: 20px; font-weight: bold;color: black">Resume</p>
+                        <p> <a href="{{ route('resume-download', $profile->applicant_id) }}">Download Resume</a></p>
+
+                        <p class="mt-4"><a href="{{ route('update-profile') }}" class="btn btn-common">Update Profile</a></p>
                     </div>
                 </div>
             </div>

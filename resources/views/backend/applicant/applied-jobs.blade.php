@@ -38,7 +38,7 @@
                                         <h3>{{ get_job_title($user_job->job_id) }}</h3>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-xs-12">
-                                        <h3>{{ get_company_email($user_job->job_id) }}</h3>
+                                        <h3>{{ get_company_name($user_job->job_id) }}</h3>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-xs-12">
                                         <h3>{{ get_company_email($user_job->job_id) }}</h3>
