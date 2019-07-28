@@ -15,10 +15,12 @@ class CreateApplicantsTable extends Migration
     {
         Schema::create('applicants', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->string('image');
-            $table->string('resume');
+            $table->unsignedBigInteger('user_id');
+            $table->string('image')->nullable();
+            $table->string('resume')->nullable();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

@@ -15,9 +15,11 @@ class CreateApplicantSkillsTable extends Migration
     {
         Schema::create('applicant_skills', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->integer('skill_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
